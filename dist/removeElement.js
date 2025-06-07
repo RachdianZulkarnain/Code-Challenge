@@ -1,4 +1,5 @@
-/* Problem : Algorithms
+"use strict";
+/*
 Diberikan sebuah array bilangan bulat nums dan sebuah bilangan bulat val, hapus semua kemunculan val dalam nums secara in-place. Urutan elemen dapat diubah. Kemudian kembalikan jumlah elemen dalam nums yang tidak sama dengan val.
 Perhatikan bahwa jumlah elemen dalam nums yang tidak sama dengan val adalah k. Agar dapat diterima, Anda perlu melakukan hal berikut:
 Ubah array nums sehingga k elemen pertama berisi elemen-elemen yang tidak sama dengan val.
@@ -34,25 +35,21 @@ Penjelasan:
 Fungsi harus mengembalikan k = 5 dengan lima elemen pertama nums berisi 0, 1, 4, 0, 3 (urutan boleh berbeda).
 Elemen setelah k tidak penting (ditandai dengan _).
 */
-
-function removeElement(nums: number[], val: number): number {
-  let k = 0; // pointer untuk posisi penempatan elemen yang valid
-
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== val) {
-      nums[k] = nums[i];
-      k++;
+Object.defineProperty(exports, "__esModule", { value: true });
+function removeElement(nums, val) {
+    let k = 0; // pointer untuk posisi penempatan elemen yang valid
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+            nums[k] = nums[i];
+            k++;
+        }
     }
-  }
-
-  return k;
+    return k;
 }
-
 let nums1 = [3, 2, 2, 3];
 let val1 = 3;
 console.log(removeElement(nums1, val1));
 console.log(nums1);
-
 let nums2 = [0, 1, 2, 2, 3, 0, 4, 2];
 let val2 = 2;
 console.log(removeElement(nums2, val2));

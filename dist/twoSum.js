@@ -1,4 +1,5 @@
-/* problem : Algorithms 
+"use strict";
+/* problem :
 Diberikan sebuah array bilangan bulat nums dan sebuah bilangan bulat target, kembalikan indeks dari dua angka sehingga jumlahnya sama dengan target.
 Anda dapat mengasumsikan bahwa setiap masukan akan memiliki tepat satu solusi, dan Anda tidak boleh menggunakan elemen yang sama dua kali.
 Anda dapat mengembalikan jawaban dalam urutan apa pun.
@@ -32,22 +33,18 @@ Contoh 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
  */
-
-function twoSum1(nums: number[], target: number) {
-  const numMap: Map<number, number> = new Map();
-
-  for (let i = 0; i < nums.length; i++) {
-    const complement = target - nums[i];
-
-    if (numMap.has(complement)) {
-      return [numMap.get(complement)!, i];
+Object.defineProperty(exports, "__esModule", { value: true });
+function twoSum1(nums, target) {
+    const numMap = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (numMap.has(complement)) {
+            return [numMap.get(complement), i];
+        }
+        numMap.set(nums[i], i);
     }
-    numMap.set(nums[i], i);
-  }
-
-  return [];
+    return [];
 }
-
 console.log(twoSum1([2, 7, 11, 15], 9));
 console.log(twoSum1([3, 2, 4], 6));
 console.log(twoSum1([3, 3], 6));

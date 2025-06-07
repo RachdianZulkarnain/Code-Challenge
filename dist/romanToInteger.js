@@ -1,4 +1,5 @@
-/* Problem : Algorithms
+"use strict";
+/* Problem :
 Angka Romawi diwakili oleh tujuh simbol berbeda: I, V, X, L, C, D, dan M.
 
 Simbol	Nilai
@@ -53,34 +54,31 @@ IV = 4 (karena I sebelum V: 5 - 1 = 4)
 Total: 1000 + 900 + 90 + 4 = 1994.
 
 */
-
-function romanToInt(s: string): number {
-  //deklarasi simbol romawi ke nilai numerik
-  const romanValues: { [key: string]: number } = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000,
-  };
-
-  let total = 0;
-
-  for (let i = 0; i < s.length; i++) {
-    const currentValue = romanValues[s[i]]; //mengambil nilai simbol saat ini
-    const nextValue = romanValues[s[i + 1]]; //mengambil nilai simbol berikutnya jika ada
-    if (nextValue && currentValue < nextValue) {
-      total -= currentValue; // mengurangkan nilai
-    } else {
-      total += currentValue; // menambah nilai
+Object.defineProperty(exports, "__esModule", { value: true });
+function romanToInt(s) {
+    //deklarasi simbol romawi ke nilai numerik
+    const romanValues = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000,
+    };
+    let total = 0;
+    for (let i = 0; i < s.length; i++) {
+        const currentValue = romanValues[s[i]]; //mengambil nilai simbol saat ini
+        const nextValue = romanValues[s[i + 1]]; //mengambil nilai simbol berikutnya jika ada
+        if (nextValue && currentValue < nextValue) {
+            total -= currentValue; // mengurangkan nilai
+        }
+        else {
+            total += currentValue; // menambah nilai
+        }
     }
-  }
-
-  return total;
+    return total;
 }
-
 console.log(romanToInt("III"));
 console.log(romanToInt("LVIII"));
 console.log(romanToInt("MCMXCIV"));
